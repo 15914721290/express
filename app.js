@@ -4,17 +4,19 @@ var favicon = require('serve-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
-var nunjucks = require('nunjucks');
+// 模板引擎
+var expressNunjucks = require('express-nunjucks');
 
 var index = require('./routes/index');
 var users = require('./routes/users');
 
 var app = express();
 
-nunjucks.configure(path.join(__dirname, 'views'), { // 设置模板文件的目录，为views
-  autoescape: true,
-  express: app,
+expressNunjucks(app, {
+  noCache: true,
+  watch: true,
 });
+
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'html');

@@ -29,9 +29,11 @@ const config = {
       ignoreOrder: true,
     }),
   ],
+  externals: {
+    jquery: 'window.$',
+  },
   module: {
-    loaders: [
-      {
+    loaders: [{
         test: /\.js$/,
         include: __dirname,
         use: {
