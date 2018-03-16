@@ -1,0 +1,5 @@
+@import './components/navigationBar.css';
+
+body {
+  background-color: blue;
+}
